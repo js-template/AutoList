@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "name": "@jstemplate/adslist",
+  "version": "0.0.1",
+  "main": "src/index.tsx",
+  "types": "src/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "publish:pack": "npm pack --pack-destination dist",
+    "publish:upload": "node scripts/publish.js",
+    "publish": "npm run publish:pack && npm run publish:upload"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.10.12",
+    "@types/lodash": "^4.14.184",
+    "@types/node": "^20.5.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "dashify": "^2.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "node-fetch": "^2.6.1",
+    "react": "^18.2.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "cookies-next": "^4.1.0",
+    "lodash": "^4.17.21",
+    "next": "^14.0.4",
+    "react-dom": "^18.2.0",
+    "react-google-autocomplete": "^2.7.3",
+    "react-hook-form": "^7.48.2",
+    "react-icons": "4.8.0",
+    "react-loading-skeleton": "^3.1.0",
+    "tailwind-merge": "^1.14.0"
+  }
+}

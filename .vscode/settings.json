@@ -1,0 +1,169 @@
+{
+  // *** Editor settings
+  "editor.formatOnSave": true, // Format on save
+  "editor.formatOnPaste": true, // Format on paste
+  "editor.inlineSuggest.enabled": true, // Enable inline suggestions
+  // Format JSON files with Prettier
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Format JS files with Prettier
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Format HTML files with VSCode
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  // Format CSS files with Prettier
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Format JSON files with Prettier
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.wordWrap": "on",
+  // *** Extension: Code Spell Checker
+  "cSpell.userWords": [
+    "apexcharts",
+    "Autolancer",
+    "casl",
+    "chartjs",
+    "Chatbar",
+    "clevision",
+    "Cloudinary",
+    "clsx",
+    "datepicker",
+    "daygrid",
+    "elementor",
+    "Frontity",
+    "fullcalendar",
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-theme-blog",
+    "gatsby-theme-blog-core",
+    "gatsbyjs",
+    "gatsbyjs.org",
+    "gifs",
+    "gleesee",
+    "gutenblcoks",
+    "hookform",
+    "iconify",
+    "Jost",
+    "languagedetector",
+    "Mailchimp",
+    "metajobs",
+    "Metashop",
+    "nextjs",
+    "NODEMAILER",
+    "nprogress",
+    "openai",
+    "Partytown",
+    "popperjs",
+    "Prettier",
+    "prismjs",
+    "Promptbar",
+    "rankmath",
+    "reduxjs",
+    "Sass",
+    "stylis",
+    "Supabase",
+    "tabler",
+    "Tailwind",
+    "timegrid",
+    "uuidv",
+    "Woocommerce",
+    "WordPress",
+    "WordPress.org",
+    "xsss"
+  ],
+  // *** Rainbow Brackets
+  "indentRainbow.updateDelay": 100, // 10 makes it super fast but may cost more resources
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  "indentRainbow.ignoreLinePatterns": [
+    "/[ \t]* [*]/g", // lines begining with <whitespace><space>*
+    "/[ \t]+[/]{2}/g" // lines begininning with <whitespace>//
+  ],
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "indentRainbow.errorColor": "rgba(128,32,32,0.6)",
+  "indentRainbow.tabmixColor": "rgba(128,32,96,0.6)",
+  // *** Prettier config
+  "prettier.useEditorConfig": true,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "always",
+  "prettier.proseWrap": "preserve",
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.endOfLine": "lf",
+  "prettier.jsxSingleQuote": false,
+  "prettier.quoteProps": "as-needed",
+  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.semi": true,
+  "prettier.useTabs": false,
+  "prettier.bracketSameLine": false,
+  "prettier.requirePragma": false,
+  "prettier.insertPragma": false,
+  // *** Extension: Todo Tree
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.tags": ["NOTE", "TODO", "FIXME", "MARK", "[ ]", "[x]"],
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "tag",
+    "fontWeight": "bold",
+    "foreground": "#000000",
+    "opacity": 90
+  },
+  "todo-tree.highlights.customHighlight": {
+    "NOTE": {
+      "background": "#FFA500",
+      "iconColour": "#FFA500",
+      "icon": "file",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    },
+    "TODO": {
+      "background": "#FFD703",
+      "iconColour": "#FFD703",
+      "icon": "tasklist",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "background": "#ff0173",
+      "iconColour": "#ff0173",
+      "icon": "bug",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    },
+    "MARK": {
+      "background": "#157EFB",
+      "iconColour": "#157EFB",
+      "icon": "tag",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    },
+    "[ ]": {
+      "background": "#ff000080",
+      "iconColour": "#ff000080",
+      "icon": "square",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    },
+    "[x]": {
+      "background": "#00ff0080",
+      "iconColour": "#00ff0080",
+      "icon": "square-fill",
+      "type": "text-and-comment",
+      "gutterIcon": true
+    }
+  },
+  "cSpell.words": ["changefreq", "lastmod", "strapi"]
+}

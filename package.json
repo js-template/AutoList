@@ -1,0 +1,24 @@
+{
+  "name": "metaads",
+  "version": "0.0.1",
+  "private": true,
+  "license": "EULA",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "frontend": "pnpm -F frontend dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "tsconfig": "workspace:*",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@9.1.1",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
