@@ -115,7 +115,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries, please contact us at [your email address].
+For any inquiries, please contact us at [info@jstemplate.net](info@jstemplate.net).
 
 > **:warning: Notice:** Our classified ads listing solution is nearly ready, but it is not production-ready yet. Stay tuned for updates!
 
