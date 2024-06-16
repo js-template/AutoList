@@ -4,8 +4,7 @@
 
 Autolist Classifieds is a full-stack solution where Next.js is used for the frontend and the backend is powered by Headless Strapi.
 
-![image](https://github.com/js-template/autolist/assets/6657014/7c125bc4-5364-418e-90e3-3dbc501829ec)
-
+![Meta-Ads Main Mockup](https://github.com/js-template/autolist/assets/6657014/a0d5e636-916b-44e7-938a-f9c883b169fd)
 
 ## Table of Contents
 - [Features](#features)
