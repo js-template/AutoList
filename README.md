@@ -55,7 +55,7 @@ Autolist Classifieds is a full-stack solution where Next.js is used for the fron
 
 1. Clone the frontend repository:
     ```bash
-    git clone https://github.com/js-template/Autolist_backend
+    git clone https://github.com/js-template/autolist
     cd nextjs-frontend
     ```
 
