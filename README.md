@@ -39,14 +39,14 @@ Autolist Classifieds is a full-stack solution where Next.js is used for the fron
 
 2. Install the dependencies:
     ```bash
-    pnpm install
+    npm install
     # or
     yarn install
     ```
 
 3. Start the Strapi server:
     ```bash
-    pnpm develop
+    npm develop
     # or
     yarn develop
     ```
