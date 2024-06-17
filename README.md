@@ -1,4 +1,4 @@
-# AutoList - Classified Ads & Listing Solution
+# Autolist - Classified Ads & Listing Solution
 
 > **:warning: Notice:** Our classified ads listing solution is nearly ready, but it is not production-ready yet. Stay tuned for updates!
 
