@@ -69,7 +69,6 @@ Autolist Classifieds is a full-stack solution where Next.js is used for the fron
     ```bash
     NEXT_PUBLIC_BASE_URL="Your_Frontend_URL"
     # Strapi API
-    NEXT_PUBLIC_API_ENDPOINT="https://apimetads.reactjstemplate.com/api/v1"
     STRAPI_ENDPOINT="Your_Strapi_Endpoint"
     STRAPI_AUTH_TOKEN="Your_Strapi_Auth_Token"
     AUTH_SECRET="Your_Next_Auth_Secret" // 32 characters
