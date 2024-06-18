@@ -31,25 +31,18 @@ Autolist Classifieds is a full-stack solution where Next.js is used for the fron
 
 - Node.js
 - pnpm or yarn
-- Strapi
+- Strapi Backend
+
+> [!IMPORTANT]  
+> Please make sure you have the backend running locally or on the cloud. You will need the backend set up before starting the frontend.
 
 ### Backend Setup (Strapi)
 
 1. Clone the backend repository from [here](https://github.com/js-template/Autolist_backend).
+   
+> [!TIP]
+> Complete the backend setup from the link above and obtain the backend URL and Strapi access token.
 
-2. Install the dependencies:
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
-
-3. Start the Strapi server:
-    ```bash
-    npm develop
-    # or
-    yarn develop
-    ```
 
 ### Frontend Setup (Next.js)
 
