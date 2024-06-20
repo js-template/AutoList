@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_review_cards",
+  "info": {
+    "displayName": "ReviewCard",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.link"
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.icon-box"
+    }
+  }
+}

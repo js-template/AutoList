@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_ads_ad_cards",
+  "info": {
+    "displayName": "AdCard",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "showAds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::manage-ad.manage-ad"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "component.link"
+    }
+  }
+}

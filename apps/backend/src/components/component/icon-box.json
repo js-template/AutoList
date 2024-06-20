@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_component_icon_boxes",
+  "info": {
+    "displayName": "IconBox",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "feedback": {
+      "type": "text"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Internal",
+        "External"
+      ]
+    },
+    "star": {
+      "type": "enumeration",
+      "enum": [
+        "One Star",
+        "Two Star",
+        "Three Start",
+        "Four Star",
+        "Five Star"
+      ]
+    }
+  }
+}

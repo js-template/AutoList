@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_widget_footer_ones",
+  "info": {
+    "displayName": "FooterOne",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "socialLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.social-link"
+    }
+  }
+}

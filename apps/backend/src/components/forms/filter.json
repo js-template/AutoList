@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_forms_filters",
+  "info": {
+    "displayName": "Filter",
+    "icon": "collapse",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ads-category.ads-category"
+    },
+    "sort": {
+      "type": "customField",
+      "options": [
+        "Hight to Low:price-desc",
+        "Low to High:price-asc",
+        "A to Z:title-desc",
+        "Z to A:title-asc",
+        "New to Old:date-desc",
+        "Old to New:date-asc"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "condition": {
+      "type": "customField",
+      "options": [
+        "New:New",
+        "Used:Used"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    }
+  }
+}
