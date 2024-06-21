@@ -8,6 +8,7 @@ import { find } from "@/lib/strapi";
 import { StrapiSeoFormate } from "@/lib/strapiSeo";
 import { getLanguageFromCookie } from "@/utils/language";
 import type { Metadata, ResolvingMetadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import { Fragment } from "react";
 
@@ -37,6 +38,14 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
       "no-cache",
       process.env.STRAPI_AUTH_TOKEN
    );
+
+   // if data?.data?.attributes?.seo is not available, return default data
+   if (!data?.data[0]?.attributes?.seo) {
+      return {
+         title: data?.data[0]?.attributes?.title || "Title not found",
+         description: data?.data[0]?.attributes?.description || "Description not found"
+      };
+   }
 
    return StrapiSeoFormate(data?.data[0]?.attributes?.seo, `/ads/${pageSlug}`);
 }
@@ -106,16 +115,7 @@ const SingleAds = async ({
       <Fragment>
          <section>
             {/* {!adsData && !adsError && <LoaderPage />} */}
-            <div
-               className='bg-primary bg-center bg-no-repeat bg-cover'
-               style={
-                  featuredImage
-                     ? {
-                          backgroundImage: `linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.6)),url(${featuredImage})`
-                       }
-                     : {}
-               }
-            >
+            <div className='bg-primary bg-center bg-no-repeat bg-cover'>
                <div className='container mx-auto pt-24 pb-16 px-5 sm:px-0'>
                   <div className='grid'>
                      <div className='grid grid-cols-5 lg:grid-cols-9 gap-8 relative'>
@@ -150,7 +150,18 @@ const SingleAds = async ({
                      <div className='grid grid-cols-5 lg:grid-cols-9 gap-8 pt-7  px-5 sm:px-0 sm:pb-16 xl:pb-0 relative'>
                         {/* left side */}
                         <div className='col-span-5 lg:col-span-6 w-full'>
-                           <ImageGallery gallery={gallery} />
+                           {gallery && gallery.length > 0 ? (
+                              <ImageGallery gallery={gallery} />
+                           ) : (
+                              <Image
+                                 src={featuredImage || "/images/placeholder.png"}
+                                 alt='Ads Image'
+                                 width={1920}
+                                 height={1080}
+                                 className='object-cover w-full h-full rounded-2xl'
+                                 layout='responsive'
+                              />
+                           )}
                            <div className='bg-white p-6 my-7 w-full rounded-2xl'>
                               <h1 className='text-2xl font-bold text-neutral'>Description</h1>
                               <p className='text-lg fxont-normal text-base-300 pt-3'>{description}</p>

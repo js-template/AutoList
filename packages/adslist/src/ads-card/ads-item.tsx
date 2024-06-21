@@ -24,24 +24,26 @@ const AdsItem = ({ item }: { item: any }) => {
       <div className="relative ">
         <Link href={item ? (item?.attributes?.slug ? `/ads/${item?.attributes?.slug}` : '#') : '#'}>
           {Photos && previewImage && (
-            <Image
-              src={previewImage}
-              alt="ads-gallery"
-              width={400}
-              height={300}
-              className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out"
-              layout="responsive"
-            />
+            <div className="relative w-full h-56 overflow-hidden rounded-lg">
+              <Image
+                src={previewImage}
+                alt="ads-gallery"
+                className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out object-cover object-center"
+                fill={true}
+                quality={100}
+              />
+            </div>
           )}
           {Photos && !previewImage && (
-            <Image
-              src={`/avatar.png`}
-              alt="ads-gallery"
-              width={400}
-              height={300}
-              className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out"
-              layout="responsive"
-            />
+            <div className="relative w-full h-56 overflow-hidden rounded-lg">
+              <Image
+                src={`/avatar.png`}
+                alt="ads-gallery"
+                className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out object-cover object-center"
+                fill={true}
+                quality={100}
+              />
+            </div>
           )}
 
           {item.status?.isFeatured && (
@@ -49,12 +51,12 @@ const AdsItem = ({ item }: { item: any }) => {
           )}
         </Link>
       </div>
-      <p className="text-xs font-normal text-base-300 pb-4 pt-5">{item?.attributes?.condition}</p>
+      <p className="text-xs font-normal text-base-300 pb-4 pt-5">{item?.attributes?.condition ?? 'N/A'}</p>
       <span className="border-b border-secondary-content block mb-3"></span>
       <h4 className="text-lg font-semibold text-neutral truncate">
         <Link
           href={item ? (item?.attributes?.slug ? `/ads/${item?.attributes?.slug}` : '#') : '#'}
-          className="hover:text-primary transition duration-300 ease-in-out"
+          className="hover:text-primary transition duration-300 ease-in-out line-clamp-1"
         >
           {item?.attributes?.title}
         </Link>
@@ -63,7 +65,7 @@ const AdsItem = ({ item }: { item: any }) => {
         <span className="mr-1.5">
           <MdOutlineLocationOn className="text-xl" />
         </span>
-        {item?.attributes?.location?.description ?? 'Location not available'}
+        <span className="line-clamp-1">{item?.attributes?.location?.description ?? 'Location not available'}</span>
       </p>
       <span className="border-b border-secondary-content block mb-4"></span>
       <div className="flex justify-between items-center">
@@ -72,7 +74,7 @@ const AdsItem = ({ item }: { item: any }) => {
           {/* {item?.priceDetails?.currency == "EUR" && <span>€</span>}
           {item?.priceDetails?.currency == "GBP" && <span>£</span>} */}
 
-          {item?.attributes?.price}
+          {item?.attributes?.price ?? '00'}
         </h5>
 
         <button className="text-info-content text-2xl">

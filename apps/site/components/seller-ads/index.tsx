@@ -5,14 +5,13 @@ import { MdOutlineLocationOn } from "react-icons/md";
 const SellerAds = ({ item }: any) => {
    return (
       <div className='sm:grid grid-cols-3 gap-7 shadow bg-white p-5 rounded-2xl hover:shadow-card transition ease-in-out duration-300'>
-         <div className='relative rounded-lg col-span-1 my-auto grid justify-center'>
+         <div className='relative rounded-lg col-span-1 my-auto grid justify-center w-full h-full object-cover'>
             <Link href={item?.attributes?.slug ? `/ads/${item?.attributes?.slug}` : "#"} target='_blank'>
                <Image
                   src={item?.attributes?.featuredImage?.data?.attributes?.url || "https://via.placeholder.com/275x220"}
-                  width={275}
-                  height={220}
+                  fill={true}
                   alt='image'
-                  className='rounded-lg w-fit h-full object-center object-cover transition duration-300 ease-in-out'
+                  className='rounded-lg w-full h-full object-center object-cover transition duration-300 ease-in-out'
                />
             </Link>
 
@@ -33,7 +32,7 @@ const SellerAds = ({ item }: any) => {
                <span className='mr-1.5'>
                   <MdOutlineLocationOn className='text-lg text-info-content' />
                </span>
-               {item?.attributes?.location}
+               {item?.attributes?.location?.description}
             </p>
             <p className='text-sm font-normal text-neutral text-clip overflow-hidden h-10'>
                {item?.attributes?.description}
