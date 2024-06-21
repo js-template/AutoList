@@ -12,28 +12,22 @@ const PostCard = ({ item }: any) => {
   return (
     <div
       key={item?.id}
-      className="col-span-6 md:col-span-3 lg:col-span-2 bg-white p-7 rounded-2xl transition duration-500 ease-in-out hover:shadow-card group"
+      className="col-span-6 md:col-span-3 lg:col-span-2 bg-white p-5 rounded-2xl transition duration-500 ease-in-out hover:shadow-card group"
     >
-      <Link href={item?.attributes?.slug ? `/blog/${item?.attributes?.slug}` : '#'}>
+      <Link
+        href={item?.attributes?.slug ? `/blog/${item?.attributes?.slug}` : '#'}
+        className="h-56 w-full relative block overflow-hidden rounded-lg mb-3"
+      >
         <Image
-          className="group-hover:scale-110 transition duration-300 ease-in-out"
+          className="group-hover:scale-110 transition duration-300 ease-in-out object-cover object-center w-full h-full"
           src={previewImage || '/avatar.png'}
-          width={370}
-          height={280}
-          layout="responsive"
+          fill={true}
           alt="blog"
         />
       </Link>
-      <p className="text-lg text-base-content pt-5 pb-2">{/* 14 SEP, 2020 */}</p>
       <h1 className="text-lg sm:text-xl text-neutral font-bold text-ellipsis overflow-hidden max-h-14 transition duration-300 ease-in-out hover:text-primary">
         <Link href={item?.attributes?.slug ? `/blog/${item?.attributes?.slug}` : '#'}>{item?.attributes?.title}</Link>
       </h1>
-      <p className="text-base text-base-300 pt-3 text-ellipsis overflow-hidden max-h-28">
-        {/* {item?.description}... */}
-        {/* Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s... */}
-      </p>
       <div className="text-base text-base-300 pt-3 text-ellipsis overflow-hidden max-h-28">
         <div
           dangerouslySetInnerHTML={{

@@ -36,6 +36,13 @@ export async function generateMetadata({ params, searchParams }: Props, parent: 
       process.env.STRAPI_AUTH_TOKEN
    );
 
+   if (!product?.data?.data[0]?.attributes?.seo) {
+      return {
+         title: product?.data?.data[0]?.attributes?.title || "Title not found",
+         description: product?.data?.data[0]?.attributes?.description || "Description not found"
+      };
+   }
+
    return StrapiSeoFormate(product?.data?.data[0]?.attributes?.seo, pageSlug);
 }
 

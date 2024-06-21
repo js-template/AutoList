@@ -1,5 +1,4 @@
 'use client';
-import _ from 'lodash';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -25,7 +24,7 @@ const SearchFilter = ({ data }: { data: any }) => {
 
   const [AdsCardData, setAdsCardData] = useState<[] | null>(null);
 
-  const { title, description, button, search, filter } = data || {};
+  const { title, search } = data || {};
 
   const {
     register,
@@ -100,7 +99,7 @@ const SearchFilter = ({ data }: { data: any }) => {
     };
 
     updateFilterUrl();
-  }, [searchOptions, filterOptions]);
+  }, [searchOptions]);
 
   const onSubmitHandler: SubmitHandler<FormData> = async (data) => {
     // Handle search and location logic
@@ -152,21 +151,7 @@ const SearchFilter = ({ data }: { data: any }) => {
           $containsi: location,
         };
       }
-      if (sort) {
-        sort === 'price-asc'
-          ? (Sort.price = 'asc')
-          : sort === 'price-desc'
-            ? (Sort.price = 'desc')
-            : sort === 'date-asc'
-              ? (Sort.createdAt = 'asc')
-              : sort === 'date-desc'
-                ? (Sort.createdAt = 'desc')
-                : sort === 'title:asc'
-                  ? (Sort.title = 'asc')
-                  : sort === 'title:desc'
-                    ? (Sort.title = 'desc')
-                    : (Sort.createdAt = 'desc');
-      }
+
       setAdsCardData(null);
       // Make the API call with the constructed filters object
       const { data, error } = await find(
@@ -192,26 +177,6 @@ const SearchFilter = ({ data }: { data: any }) => {
 
     fetchAds();
   }, [searchOptions]);
-
-  // *** Switch case for filter options ***
-  const getSortName = (option: string) => {
-    switch (option) {
-      case 'price-asc':
-        return 'Price (Low to High)';
-      case 'price-desc':
-        return 'Price (High to Low)';
-      case 'date-asc':
-        return 'Date (Old to New)';
-      case 'date-desc':
-        return 'Date (New to Old)';
-      case 'title-asc':
-        return 'Title (A to Z)';
-      case 'title-desc':
-        return 'Title (Z to A)';
-      default:
-        return option;
-    }
-  };
 
   return (
     <section>
@@ -310,103 +275,9 @@ const SearchFilter = ({ data }: { data: any }) => {
 
       <div className="bg-success-content py-44 md:py-36 lg:py-24">
         <div className="container mx-auto  px-5 sm:px-0">
-          {/* <!-- filter section --> */}
-          <div className="bg-white p-7 rounded-lg shadow-filterShadow">
-            {/* <h1 className="text-neutral text-base md:text-2xl font-bold text-center">
-              <span className="text-primary">{"00"}</span> Product
-              {10 > 1 && <span>s</span>} Found
-            </h1> */}
-
-            {/* <hr className="mt-5 md:hidden" /> */}
-
-            <div className="pt-6">
-              <div className="grid lg:flex flex-wrap lg:flex-nowrap gap-5">
-                <div className="flex items-center justify-between text-base-300 cursor-pointer grow-0 w-full md:w-auto">
-                  {filter && (
-                    <p
-                      className={`${
-                        direction === 'rtl' ? 'pl-5' : 'pr-5'
-                      } text-neutral text-base md:text-xl font-bold whitespace-nowrap`}
-                    >
-                      {filter?.title}
-                    </p>
-                  )}
-                  <svg
-                    // onClick={() => close(!open)}
-                    // className={`lg:hidden transition duration-300 ease-in-out ${
-                    //   open ? 'text-primary' : 'text-base-300'
-                    // }`}
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14.8327 0.666992H3.16602C2.50297 0.666992 1.86709 0.930384 1.39825 1.39923C0.929408 1.86807 0.666016 2.50395 0.666016 3.16699V4.14199C0.665896 4.48611 0.736821 4.82655 0.874349 5.14199V5.19199C0.992082 5.45947 1.15884 5.70254 1.36602 5.90866L6.49935 11.0087V16.5003C6.49907 16.6419 6.53488 16.7813 6.60341 16.9052C6.67194 17.0292 6.77092 17.1336 6.89102 17.2087C7.02363 17.2909 7.17666 17.3342 7.33268 17.3337C7.46313 17.3329 7.59158 17.3015 7.70768 17.242L11.041 15.5753C11.1784 15.5061 11.294 15.4001 11.3749 15.2692C11.4558 15.1383 11.4989 14.9875 11.4993 14.8337V11.0087L16.5993 5.90866C16.8065 5.70254 16.9733 5.45947 17.091 5.19199V5.14199C17.24 4.82902 17.3223 4.48848 17.3327 4.14199V3.16699C17.3327 2.50395 17.0693 1.86807 16.6004 1.39923C16.1316 0.930384 15.4957 0.666992 14.8327 0.666992ZM10.0743 10.0753C9.99711 10.1532 9.93601 10.2455 9.89454 10.3471C9.85307 10.4486 9.83205 10.5573 9.83268 10.667V14.317L8.16602 15.1503V10.667C8.16665 10.5573 8.14563 10.4486 8.10416 10.3471C8.06269 10.2455 8.00158 10.1532 7.92435 10.0753L3.50768 5.66699H14.491L10.0743 10.0753ZM15.666 4.00033H2.33268V3.16699C2.33268 2.94598 2.42048 2.73402 2.57676 2.57774C2.73304 2.42146 2.945 2.33366 3.16602 2.33366H14.8327C15.0537 2.33366 15.2657 2.42146 15.4219 2.57774C15.5782 2.73402 15.666 2.94598 15.666 3.16699V4.00033Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-
-                {/* <!-- Search Filters --> */}
-                <div className={`w-full lg:block ${true ? 'block' : 'hidden'}`}>
-                  <form className="w-full h-full" action="">
-                    <div className="flex flex-wrap lg:flex-nowrap gap-6 grow">
-                      {/* Category  */}
-                      <select
-                        className={`${
-                          direction === 'rtl' ? 'pr-3 selectFormRtl' : 'pl-3 selectForm'
-                        } py-3 text-base text-neutral appearance-none w-full border  rounded focus:outline-none cursor-pointer `}
-                        {...register('category')}
-                      >
-                        <option value="">{filter?.filterByCategory || 'All Category'}</option>
-                        {_.map(filter?.categories?.data, (item, index) => (
-                          // @ts-ignore
-                          <option key={index} value={item?.attributes?.title}>
-                            {/* @ts-ignore */}
-                            {item?.attributes?.title || 'Not Found'}
-                          </option>
-                        ))}
-                      </select>
-
-                      {/* Condition  */}
-                      <select
-                        className={`${
-                          direction === 'rtl' ? 'pr-3 selectFormRtl' : 'pl-3 selectForm'
-                        } selectForm py-3 text-base text-neutral appearance-none w-full border rounded focus:outline-none cursor-pointer`}
-                        {...register('condition')}
-                      >
-                        <option value="">{filter?.filterByCondition || 'Condition'}</option>
-                        {_.map(filter?.condition, (item, index) => (
-                          <option key={index} value={item}>
-                            {item || 'Not Found'}
-                          </option>
-                        ))}
-                      </select>
-
-                      {/* Sort */}
-                      <select
-                        className={`${
-                          direction === 'rtl' ? 'pr-3 selectFormRtl' : 'pl-3 selectForm'
-                        } selectForm py-3 text-base text-neutral appearance-none w-full border rounded focus:outline-none cursor-pointer`}
-                        {...register('sort')}
-                      >
-                        <option value="">Sort</option>
-                        {_.map(filter?.sort, (item, index) => (
-                          <option key={index} value={item} className="capitalize">
-                            {getSortName(item) || 'Not Found'}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
           {/* Loading skeleton */}
           {!AdsCardData && <AdsCardLoader />}
+
           {/* <!-- card section --> */}
           {AdsCardData && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-7 mt-12">
